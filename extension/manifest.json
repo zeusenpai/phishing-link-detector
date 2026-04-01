@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Shield Phishing Detector",
+  "version": "1.0",
+  "description": "Detects phishing URLs using Gemini AI to warn users of malicious websites.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Phishing Detector"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

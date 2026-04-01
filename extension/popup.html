@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shield — Phishing Detector</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────── -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" fill="url(#shieldGrad)" opacity="0.15"/>
+          <path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" stroke="url(#shieldGrad)" stroke-width="1.5" fill="none"/>
+          <path d="M9 12L11 14L15 10" stroke="url(#shieldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="shieldGrad" x1="3" y1="2" x2="21" y2="24">
+              <stop stop-color="#00f0ff"/>
+              <stop offset="1" stop-color="#6366f1"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>SHIELD</h1>
+        <span class="header-sub">Threat Intelligence</span>
+      </div>
+    </div>
+    <div class="scan-pulse" id="scan-pulse" title="Scanning…">
+      <span class="pulse-dot"></span>
+    </div>
+  </header>
+
+  <!-- ── URL Target ─────────────────────────────────── -->
+  <div class="url-panel">
+    <span class="url-label">TARGET</span>
+    <div id="url-bar" class="url-value">Acquiring target…</div>
+  </div>
+
+  <!-- ── Loading State ──────────────────────────────── -->
+  <div id="loading" class="loading-panel">
+    <div class="scan-ring"></div>
+    <span class="loading-text">Analyzing threat surface…</span>
+  </div>
+
+  <!-- ── Results ────────────────────────────────────── -->
+  <div id="result" class="result-panel">
+
+    <!-- Threat Level Card -->
+    <div id="status-card" class="threat-card">
+      <div class="threat-card-inner">
+        <div id="status-icon" class="threat-icon"></div>
+        <div class="threat-info">
+          <div id="status-label" class="threat-label"></div>
+          <div id="risk-score" class="threat-score"></div>
+        </div>
+      </div>
+      <div class="threat-meter">
+        <div id="threat-meter-fill" class="threat-meter-fill"></div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div id="summary-box" class="summary-box" style="display:none;">
+      <span class="summary-icon">📋</span>
+      <span id="summary-text" class="summary-text"></span>
+    </div>
+
+    <!-- Risk Findings Section -->
+    <div id="findings-section" class="findings-section" style="display:none;">
+      <div class="findings-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span>Risk Findings</span>
+      </div>
+      <div id="findings-list" class="findings-list"></div>
+    </div>
+
+  </div>
+
+  <!-- ── Footer ─────────────────────────────────────── -->
+  <footer class="app-footer">
+    <button id="rescan-btn" class="rescan-btn" title="Re-scan this page">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"/>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+      </svg>
+      Re-scan
+    </button>
+    <span class="footer-tag">Powered by Gemini AI</span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
